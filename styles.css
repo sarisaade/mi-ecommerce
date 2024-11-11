@@ -158,12 +158,14 @@ footer {
     border: 1px solid #ccc; 
     border-radius: 10px; 
     max-width: auto;
+    background-color:  rgb(239, 242, 245);
    }
 
 form {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: ;
 }
 
 form input, form textarea, form button {
