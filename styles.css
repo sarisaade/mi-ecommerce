@@ -98,20 +98,7 @@ nav ul li a {
 }
 
 
-/*footer {
-  background-color: rgb(239, 242, 245);
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  margin: 20px;
-  padding: 10px;
-  color: black;
-  text-align: center;
-  padding: 10px 0;
-}
-.titulos-info{
-  font-weight: bold;
-  
-}*/
+
 footer {
   border-radius: 10px;
   background-color: rgb(14, 14, 50); /* Fondo azul */
