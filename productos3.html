@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="./favicon-32x32.png">
+
+    
+</head>
+<body>
+    <div class="marquee-container">
+        <div class="marquee">
+          Bienvenidos a LEGENDARIO JEANS - ¡Descubre nuestra nueva colección de ropa para hombre!
+        </div>
+      </div>
+    <header>
+        <div class="banner">
+            <div class="logo"> 
+                <img src="./24FEC762-47F0-4F9E-8F29-CF139B27135F.webp" alt="Logo de LEGENDARIO JEANS">
+                 <h1>Mi E-commerce de Ropa de Hombre</h1> 
+                </div> 
+                <nav>
+                     <ul> 
+                        <li><a href="index.html">Inicio</a></li> 
+                        <li><a href="productos.html">Productos</a></li> 
+                        <li><a href="contacto.html">Contacto</a></li> 
+                    </ul> 
+                </nav>    
+        </div> 
+    </header>
+    <main>
+      <h1 class="productos-tittle">Productos</h1>
+      <section class="product-container">
+        <div class="product-card" data-id="1">
+          <h2>Camisa Clásica</h2>
+          <img src="camisa.jpg" alt="Camisa Clásica">
+          <p>Descripción de la camisa clásica.</p>
+          <p>Precio: $30</p>
+          <label for="talle-1">Selecciona tu talle:</label>
+          <select id="talle-1" class="talle">
+            <option value="">Selecciona una opción</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+          <br><br>
+          <label for="cantidad-1">Cantidad:</label>
+          <input type="number" id="cantidad-1" class="cantidad" value="1" min="1">
+          <br><br>
+          <button class="add-to-cart" data-id="1" data-name="Camisa Clásica" data-price="30.00">Agregar al carrito</button>
+          <br><br>
+          
+        </div>
+        <div class="product-card" data-id="2">
+          <h2>Pantalón Moderno</h2>
+          <img src="blue-jeans-fabric-details.jpg" alt="Pantalón Moderno">
+          <p>Descripción del pantalón moderno.</p>
+          <p>Precio: $45</p>
+          <label for="talle-2">Selecciona tu talle:</label>
+          <select id="talle-2" class="talle">
+            <option value="">Selecciona una opción</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+            <option value="42">42</option>
+            <option value="44">44</option>
+            <option value="46">46</option>
+            <option value="48">48</option>
+            <option value="50">50</option>
+            <option value="52">52</option>
+            <option value="54">54</option>
+            
+          </select>
+          <br><br>
+          <label for="cantidad-2">Cantidad:</label>
+          <input type="number" id="cantidad-2" class="cantidad" value="1" min="1">
+          <br><br>
+          <button class="add-to-cart" data-id="2" data-name="Pantalón Moderno" data-price="45.00">Agregar al carrito</button>
+          <br><br>
+          
+        </div>
+        <div class="product-card" data-id="3">
+          <h2>Pantalon Clasico</h2>
+          <img src="./blue-jeans-fabric-details.jpg" alt="Pantalon">
+          <p>Descripción del pantalon Clasico.</p>
+          <p>Precio: $50</p>
+          <label for="talle-3">Selecciona tu talle:</label>
+          <select id="talle-3" class="talle">
+            <option value="">Selecciona una opción</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+            <option value="42">42</option>
+            <option value="44">44</option>
+            <option value="46">46</option>
+            <option value="48">48</option>
+            <option value="50">50</option>
+            <option value="52">52</option>
+            <option value="54">54</option>
+          </select>
+          <br><br>
+          <label for="cantidad-3">Cantidad:</label>
+          <input type="number" id="cantidad-3" class="cantidad" value="1" min="1">
+          <br><br>
+          <button class="add-to-cart" data-id="3" data-name="Pantalon Clásico" data-price="50.00">Agregar al carrito</button>
+          <br><br>
+          
+        </div>
+        <div class="product-card" data-id="5">
+          <h2>Panatalon de Gabardina</h2>
+          <img src="./24FEC762-47F0-4F9E-8F29-CF139B27135F.webp" alt="Pantalon de Gabardina">
+          <p>Descripción del pantalon de Gabardina.</p>
+          <p>Precio: $85</p>
+          <label for="talle-5">Selecciona tu talle:</label>
+          <select id="talle-5" class="talle">
+            <option value="">Selecciona una opción</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+            <option value="42">42</option>
+            <option value="44">44</option>
+            <option value="46">46</option>
+            <option value="48">48</option>
+            <option value="50">50</option>
+          </select>
+          <br><br>
+          <label for="cantidad-5">Cantidad:</label>
+          <input type="number" id="cantidad-5" class="cantidad" value="1" min="1">
+          <br><br>
+          <button class="add-to-cart" data-id="5" data-name="Panatalon de gabardina" data-price="85.00">Agregar al carrito</button>
+          <br><br>
+          
+        </div>
+        <div class="product-card" data-id="4">
+          <h2>Costura Gruesa</h2>
+          <img src="./24FEC762-47F0-4F9E-8F29-CF139B27135F.webp" alt="Camisa Clásica">
+          <p>Descripción del pantalon costura gruesa.</p>
+          <p>Precio: $80</p>
+          <label for="talle-4">Selecciona tu talle:</label>
+          <select id="talle-4" class="talle">
+            <option value="">Selecciona una opción</option>
+            <option value="38">38</option>
+            <option value="40">40</option>
+            <option value="42">42</option>
+            <option value="44">44</option>
+            <option value="46">46</option>
+            <option value="48">48</option>
+            <option value="50">50</option>
+            <option value="52">52</option>
+            <option value="54">54</option>
+          </select>
+          <br><br>
+          <label for="cantidad-4">Cantidad:</label>
+          <input type="number" id="cantidad-4" class="cantidad" value="1" min="1">
+          <br><br>
+          <button class="add-to-cart" data-id="4" data-name="Pantalon Costura Gruesa" data-price="80.00">Agregar al carrito</button>
+          <br><br>
+          
+        </div>
+        <div class="product-card" data-id="6">
+          <h2>Chombas</h2>
+          <img src="./24FEC762-47F0-4F9E-8F29-CF139B27135F.webp" alt="Camisa Clásica">
+          <p>Descripción de las chombas.</p>
+          <p>Precio: $35</p>
+          <label for="talle-6">Selecciona tu talle:</label>
+          <select id="talle-6" class="talle">
+            <option value="">Selecciona una opción</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+          <br><br>
+          <label for="cantidad-6">Cantidad:</label>
+          <input type="number" id="cantidad-6" class="cantidad" value="1" min="1">
+          <br><br>
+          <button class="add-to-cart" data-id="6" data-name="Chombas" data-price="35.00">Agregar al carrito</button>
+          <br><br>
+          
+        </div>
+
+        <!-- Agrega más productos aquí -->
+      </section>
+      <div class="cart-container">
+        <h2>Carrito de Compras</h2>
+        <ul class="cart-items"></ul>
+        <p>Total: $<span class="cart-total">0.00</span></p>
+        <button class="clear-cart">Vaciar Carrito</button>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-info"> 
+        <div class="contact-info"> 
+          <h3>Contactos</h3>
+           <p>Teléfono: +54 11 1234 5678</p> 
+           <p>WhatsApp: <a href="https://wa.me/541112345678" target="_blank">
+            <img src="./whatsapp.png" alt="WhatsApp" class="social-icon"> Enviar mensaje</a>
+          </p>
+           <p>Dirección: Argerich 484, Ciudad de Buenos Aires, Argentina</p>
+           </div> 
+           <div class="hours-info"> 
+            <h3>Horarios</h3> 
+            <p>Lunes a Viernes: 08:00 - 17:00</p> 
+            <p>Sábados: Cerrado</p> 
+          </div> <div class="social-info"> <h3>Redes Sociales</h3> 
+            <p>
+              <a href="https://facebook.com/legendariojeans" target="_blank">
+              <img src="./facebook.png" alt="Facebook" class="social-icon"> Facebook</a>
+            </p>
+             <p>
+              <a href="https://instagram.com/legendariojeans" target="_blank">
+                <img src="./instagram.png" alt="Instagram" class="social-icon"> 
+                Instagram</a>
+              </p>
+             </div> 
+            </div> 
+            <p>&copy; 2024 Mi E-commerce de Ropa de Hombre
+              
+            </p>
+  </footer>
+  <script src="script13.js"></script>
+</body>
+</html>
