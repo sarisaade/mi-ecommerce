@@ -130,4 +130,43 @@ function generateProducts() {
       displayCart();
     });
   });
+  // validateForm.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    const formErrors = document.getElementById('form-errors');
+  
+    form.addEventListener('submit', (event) => {
+      let errors = [];
+  
+      // Validación de nombre
+      if (nameInput.value.trim() === '') {
+        errors.push('El nombre es obligatorio.');
+      }
+  
+      // Validación de correo electrónico
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(emailInput.value)) {
+        errors.push('El correo electrónico no es válido.');
+      }
+  
+      // Validación de mensaje
+      if (messageInput.value.trim() === '') {
+        errors.push('Debe escribir un mensaje.');
+      }
+  
+      // Mostrar errores si hay
+      if (errors.length > 0) {
+        event.preventDefault();
+        formErrors.classList.add('error-message');
+        formErrors.innerHTML = errors.map(error => `<p>${error}</p>`).join('');
+      } else {
+        formErrors.innerHTML = '';
+        formErrors.classList.remove('error-message');
+      }
+    });
+  });
   

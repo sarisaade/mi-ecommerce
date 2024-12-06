@@ -99,6 +99,7 @@ nav ul li a {
    margin-right: auto;
    
    display: block;
+   }
 
 /* Media Queries para pantallas más grandes */
 @media (min-width: 768px) {
@@ -242,4 +243,27 @@ form button:hover {
   }
 }
 
-/* Estilos para el banner que se despl[_{{{CITATION{{{_1{](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md)[_{{{CITATION{{{_2{](https://github.com/EngFatma/php_task2/tree/0f7e07e11063570242544f2cfe803fd4810be443/includes%2Fheader.php)[_{{{CITATION{{{_3{](https://github.com/javierwnk/estanco-saludable/tree/cc37ba3410371320083c87dc3999aa6863fdee4a/contacto.php)[_{{{CITATION{{{_4{](https://github.com/japsolo/p5-frontend/tree/34fa3ccbcb7eec046e173156cdbb00c70805e510/clase02%2Freadme.md)[_{{{CITATION{{{_5{](https://github.com/tynzer/Guayerd-Proyecto-5/tree/9cc69ae5a7c791eb0fb52adeb31e1a3992dd3072/Components%2FHeader.js)
+/* Estilos para el banner que se despl[_{{{CITATION{{{_1{]
+(https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md)[_{{{CITATION{{{_2{](https://github.com/EngFatma/php_task2/tree/0f7e07e11063570242544f2cfe803fd4810be443/includes%2Fheader.php)[_{{{CITATION{{{_3{](https://github.com/javierwnk/estanco-saludable/tree/cc37ba3410371320083c87dc3999aa6863fdee4a/contacto.php)[_{{{CITATION{{{_4{](https://github.com/japsolo/p5-frontend/tree/34fa3ccbcb7eec046e173156cdbb00c70805e510/clase02%2Freadme.md)[_{{{CITATION{{{_5{](https://github.com/tynzer/Guayerd-Proyecto-5/tree/9cc69ae5a7c791eb0fb52adeb31e1a3992dd3072/Components%2FHeader.js)
+
+/* Estilos para los mensajes de error */
+.error-message {
+  color: red;
+  background-color: #ffe6e6;
+  border: 1px solid red;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+/* Estilo para el contenedor de errores */
+#error-container {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ffe6e6;
+  border-radius: 5px;
+  border: 1px solid red;
+  color: red;
+}
+

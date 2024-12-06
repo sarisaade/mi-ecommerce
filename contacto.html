@@ -22,62 +22,64 @@
                      <ul> 
                         <li><a href="index.html">Inicio</a></li> 
                         <li><a href="productos3.html">Productos</a></li> 
-                         
                         <li><a href="carrito.html">Carrito</a></li>
                     </ul> 
                 </nav>    
         </div> 
-    </header> 
-   </header>
+    </header>
     <main>
         <div class="contact-form">
-        <h1 class="contacto-tittle">Contacto</h1>
-    <section>
-        
-        <h2>Formulario de Contacto</h2>
-        <form action="https://formspree.io/f/mpwzdjlz" method="POST">
-          <input type="text" name="name" placeholder="Nombre" required>
-          <input type="email" name="email" placeholder="Correo Electrónico" required>
-          <textarea name="message" placeholder="Mensaje" required></textarea>
-          <button type="submit">Enviar</button>
-        </form>
-    </div>
-      
-
+            <h1 class="contacto-tittle">Contacto</h1>
+            <section>
+                <h2>Formulario de Contacto</h2>
+                <form id="contact-form" action="https://formspree.io/f/mpwzdjlz" method="POST" novalidate>
+                  <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Nombre" required>
+                    <span class="error-message" id="name-error"></span> <!-- Contenedor para el error del nombre -->
+                  </div>
+                  <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
+                    <span class="error-message" id="email-error"></span> <!-- Contenedor para el error del correo -->
+                  </div>
+                  <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Mensaje" required></textarea>
+                    <span class="error-message" id="message-error"></span> <!-- Contenedor para el error del mensaje -->
+                  </div>
+                  <button type="submit">Enviar</button>
+                </form>
+            </section>
+        </div>
     </main>
     <footer>
-      <div class="footer-info"> 
-        <div class="contact-info"> 
-          <h3>Contactos</h3>
-           <p>Teléfono: +54 11 1234 5678</p> 
-           <p>WhatsApp: <a href="https://wa.me/541112345678" target="_blank">
-            <img src="./whatsapp.png" alt="WhatsApp" class="social-icon"> Enviar mensaje</a>
-          </p>
-           <p>Dirección: Argerich 484, Ciudad de Buenos Aires, Argentina</p>
-           </div> 
-           <div class="hours-info"> 
-            <h3>Horarios</h3> 
-            <p>Lunes a Viernes: 08:00 - 17:00</p> 
-            <p>Sábado: Cerrado</p> 
-          </div> <div class="social-info"> <h3>Redes Sociales</h3> 
-            <p>
-              <a href="https://facebook.com/legendariojeans" target="_blank">
-              <img src="./facebook.png" alt="Facebook" class="social-icon"> Facebook</a>
-            </p>
-             <p>
-              <a href="https://instagram.com/legendariojeans" target="_blank">
-                <img src="./instagram.png" alt="Instagram" class="social-icon"> 
-                Instagram</a>
-              </p>
-             </div> 
+        <div class="footer-info"> 
+            <div class="contact-info"> 
+                <h3>Contactos</h3>
+                <p>Teléfono: +54 11 1234 5678</p> 
+                <p>WhatsApp: <a href="https://wa.me/541112345678" target="_blank">
+                    <img src="./whatsapp.png" alt="WhatsApp" class="social-icon"> Enviar mensaje</a>
+                </p>
+                <p>Dirección: Argerich 484, Ciudad de Buenos Aires, Argentina</p>
             </div> 
-            <p>&copy; 2024 Mi E-commerce de Ropa de Hombre
-              
-            </p>
-  </footer>
-</footer>
-
-    
+            <div class="hours-info"> 
+                <h3>Horarios</h3> 
+                <p>Lunes a Viernes: 08:00 - 17:00</p> 
+                <p>Sábados: Cerrado</p> 
+            </div> 
+            <div class="social-info"> 
+                <h3>Redes Sociales</h3> 
+                <p>
+                    <a href="https://facebook.com/legendariojeans" target="_blank">
+                    <img src="./facebook.png" alt="Facebook" class="social-icon"> Facebook</a>
+                </p>
+                <p>
+                    <a href="https://instagram.com/legendariojeans" target="_blank">
+                    <img src="./instagram.png" alt="Instagram" class="social-icon"> 
+                    Instagram</a>
+                </p>
+            </div> 
+        </div> 
+        <p>&copy; 2024 Mi E-commerce de Ropa de Hombre</p>
+    </footer>
+    <script src="validateForm.js"></script>
 </body>
-
 </html>
