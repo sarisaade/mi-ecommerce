@@ -77,6 +77,15 @@ function generateProducts() {
   
     updateCartTotal();
   }
+  // Añadir funcionalidad a los botones de eliminación 
+  document.querySelectorAll('.remove-from-cart').forEach(button => {
+     button.addEventListener('click', () => { 
+      const productId = parseInt(button.getAttribute('data-id')); 
+      const productTalle = button.getAttribute('data-talle'); 
+      removeFromCart(productId, productTalle);
+     }); 
+    });
+   
   
   // Función para actualizar el total del carrito
   function updateCartTotal() {
