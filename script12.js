@@ -78,8 +78,8 @@ function generateProducts() {
     cart.forEach(product => {
       const listItem = document.createElement('li');
       listItem.innerHTML = `
-        ${product.name} (Talle: ${product.talle}) - Cantidad: ${product.quantity} - Precio: $${(product.price * product.quantity).toFixed(2)}
-        <button class="remove-from-cart" data-id="${product.id}" data-talle="${product.talle}">Eliminar una unidad</button>
+        ${product.quantity}   ${product.name} (Talle: ${product.talle}) - Precio: $${(product.price * product.quantity).toFixed(2)}
+        <button class="remove-from-cart" data-id="${product.id}" data-talle="${product.talle}"><img src="./icono quitar carrito.png" alt=""></button>
       `;
       cartContainer.appendChild(listItem);
     });
@@ -169,4 +169,62 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+  
+// scripts.js
+
+document.addEventListener('DOMContentLoaded', () => {
+  const confirmarCarritoBtn = document.getElementById('confirmar-carrito-btn');
+  const dialog = document.getElementById('dialog');
+  const confirmationForm = document.getElementById('confirmation-form');
+  const confirmationMessage = document.createElement('div');
+
+  // Crear mensaje de confirmación estilizado
+  confirmationMessage.id = 'confirmation-message';
+  confirmationMessage.style.display = 'none';
+  confirmationMessage.style.position = 'fixed';
+  confirmationMessage.style.top = '50%';
+  confirmationMessage.style.left = '50%';
+  confirmationMessage.style.transform = 'translate(-50%, -50%)';
+  confirmationMessage.style.padding = '20px';
+  confirmationMessage.style.backgroundColor = '#f9f9f9';
+  confirmationMessage.style.border = '1px solid #ccc';
+  confirmationMessage.style.borderRadius = '10px';
+  confirmationMessage.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
+  document.body.appendChild(confirmationMessage);
+
+  confirmarCarritoBtn.addEventListener('click', () => {
+    dialog.style.display = 'block';
+  });
+
+  confirmationForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    // Validar número de teléfono
+    const phoneInput = document.getElementById('buyer-phone');
+    const phonePattern = /^[0-9]{10,15}$/; // Permitir solo números de 10 a 15 dígitos
+    if (!phonePattern.test(phoneInput.value)) {
+      alert('Por favor, ingrese un número de teléfono válido.');
+      return;
+    }
+
+    // Validar correo electrónico
+    const emailInput = document.getElementById('buyer-email');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(emailInput.value)) {
+      alert('Por favor, ingrese un correo electrónico válido.');
+      return;
+    }
+
+    // Mostrar mensaje de confirmación estilizado
+    confirmationMessage.innerHTML = `
+      <h2>Compra Confirmada</h2>
+      <p>¡Gracias por su compra, ${document.getElementById('buyer-name').value}!
+      Pronto nos pondremos en contacto con Ud!</p>
+      <button onclick="document.getElementById('confirmation-message').style.display='none'">Cerrar</button>
+    `;
+    confirmationMessage.style.display = 'block';
+    dialog.style.display = 'none';
+  });
+});
+
   

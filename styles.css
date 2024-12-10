@@ -100,7 +100,7 @@ nav ul li a {
 
 
 footer {
-  border-radius: 10px;
+  border-start-start-radius: 0px;
   background-color: rgb(14, 14, 50); /* Fondo azul */
   color: white; /* Letras blancas */
   text-align: center;
@@ -393,11 +393,11 @@ input.error-message.active, textarea.error-message.active {
 button[type="submit"] {
   display: block;
   width: 100%;
-  padding: 15px; /* Botón más grande */
-  font-size: 1.2em; /* Fuente más grande */
+  padding: 15px;
+  font-size: 1.2em;
   font-weight: bold;
   color: white;
-  background-color: #333;
+  background-color: green;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -410,16 +410,228 @@ button[type="submit"]:hover {
 /* Responsividad */
 @media (max-width: 600px) {
   .form-group {
-      margin-bottom: 15px;
+    margin-bottom: 15px;
   }
 
   .form-group input, .form-group textarea {
-      padding: 10px; /* Ajusta el padding para pantallas más pequeñas */
-      font-size: 1em; /* Ajusta el tamaño de fuente para pantallas más pequeñas */
+    padding: 10px;
+    font-size: 1em;
   }
 
   button[type="submit"] {
-      padding: 10px; /* Ajusta el padding para pantallas más pequeñas */
-      font-size: 1em; /* Ajusta el tamaño de fuente para pantallas más pequeñas */
+    padding: 10px;
+    font-size: 1em;
   }
 }
+
+/* Estilo para el botón Confirmar Carrito */
+.confirmar-carrito-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.confirmar-carrito-btn:hover {
+  background-color: green;
+}
+
+/* Estilo para el cuadro de diálogo */
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
+}
+
+.dialog h2 {
+  margin-top: 0;
+}
+
+.dialog .form-group {
+  margin-bottom: 15px;
+}
+
+.dialog .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.dialog .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.comprar-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.comprar-btn:hover {
+  background-color: green;
+}
+
+.eliminar-unidad-btn{
+  background: none; border: none; padding: 0; cursor: pointer;
+  display: block; max-width: 100%; height: auto;
+}
+
+.eliminar-unidad-btn:hover,
+
+ .vaciar-carrito-btn:hover, .agregar-carrito-btn:hover, .seleccionar-opcion-btn:hover {
+  background-color: red;
+}
+
+/* Estilos para el mensaje de confirmación */
+.confirmation-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
+  text-align: center;
+}
+
+.confirmation-message h2 {
+  margin-top: 0;
+  color: #4CAF50;
+}
+
+.confirmation-message p {
+  font-size: 1.2em;
+}
+.eliminar-unidad-btn {
+  background: none; border: none; padding: 0; cursor: pointer;
+ }
+ .eliminar-unidad-btn {
+   display: flex; max-width: 5%; 
+   align-self: flex-end;
+   margin-left: 10px;
+
+ }
+ .remove-from-cart img{
+  width: 25px;
+  height: auto;
+  display: block;
+  margin:0 auto;
+  
+ }
+/* Estilos para el contenedor del carrito */
+.cart-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centrar elementos horizontalmente */
+}
+
+/* Estilos para los elementos del carrito */
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centrar los elementos horizontalmente */
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: black;
+}
+
+.cart-items {
+  width: 100%;  /* Asegura que todos los elementos tengan el mismo ancho */
+  max-width: 500px;  /* Define un ancho máximo para los elementos */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;  /* Centrar elementos verticalmente dentro del cart-item */
+  justify-content: space-between;
+  min-height: 60px;  /* Establecer una altura mínima uniforme para todos los ítems */
+}
+
+.cart-items p {
+  margin: 0;
+  font-size: 1.2em;  /* Fuente más grande */
+  font-weight: bold;  /* Texto más grueso */
+  font-family: 'Arial', sans-serif;  /* Cambiar la fuente */
+  text-align: left;  /* Alinear el texto a la izquierda */
+  flex: 1;  /* Permitir que el texto ocupe todo el espacio disponible */
+}
+
+
+/* Estilos para el botón de eliminar una unidad */
+.eliminar-unidad-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: red;
+  font-size: 1.5em;
+  align-self: flex-end;
+  margin-left: 10px;
+  max-width: 100%; /* La imagen no será más ancha que su contenedor */ max-height: 500px; /* Altura máxima de la imagen */ width: auto; /* La imagen mantiene su proporción de ancho */ height: auto; /* La imagen mantiene su proporción de altura */ display: block; /* Asegura que la imagen se muestre como un bloque */ margin: 0 auto; /* Centra la imagen horizonta*/
+  
+  
+}
+
+.eliminar-unidad-btn:hover {
+  color: darkred;
+}
+
+/* Estilos para el botón de vaciar el carrito */
+.clear-cart {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;  /* Añade espacio encima del botón */
+}
+
+.clear-cart:hover {
+  background-color: #555;
+}
+
+ 
