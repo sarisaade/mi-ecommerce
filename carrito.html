@@ -24,15 +24,15 @@
         </div> 
     </header>
     <main>
-        <h1 class="productos-tittle">Carrito de Compras</h1>
-        <div class="cart-container">
-            <div class="cart-items">
-              <div class="cart-item"></div>
-              <button class="eliminar-unidad-btn"></i><img src="./icono quitar carrito.png" alt=""></button> </li>
-            </div>
-            <p>Total: $<span class="cart-total">0.00</span></p>
-            <button class="clear-cart">Vaciar Carrito</button>
-        </div>
+      <div class="cart-container">
+        <h2>Carrito de Compras</h2>
+        <div class="cart-items"></div>
+        <p>Total: $<span class="cart-total">0.00</span></p>
+        <button class="clear-cart">Vaciar Carrito</button>
+        <button onclick="location.href='carrito.html'" class="ver-carrito-btn">Ver Carrito</button>
+      </div>
+           
+          
       <!-- Botón para confirmar el carrito --> 
        <button id="confirmar-carrito-btn" class="confirmar-carrito-btn">Confirmar Carrito</button> <!-- Cuadro de diálogo para ingresar datos --> <div id="dialog" class="dialog" style="display:none;"> <form id="confirmation-form"> <h2>Ingrese sus datos para confirmar la compra</h2> <div class="form-group"> <label for="buyer-name">Nombre:</label> <input type="text" id="buyer-name" name="buyer-name" required> </div> <div class="form-group"> <label for="buyer-phone">Teléfono:</label> <input type="tel" id="buyer-phone" name="buyer-phone" required> </div> <div class="form-group"> <label for="buyer-email">Correo Electrónico:</label> <input type="email" id="buyer-email" name="buyer-email" required> </div> <button type="submit" id="comprar-btn" class="comprar-btn">Comprar</button> </form> </div>  
 

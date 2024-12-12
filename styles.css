@@ -424,41 +424,7 @@ button[type="submit"]:hover {
   }
 }
 
-/* Estilo para el botón Confirmar Carrito */
-.confirmar-carrito-btn {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: white;
-  background-color: green;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-}
 
-.confirmar-carrito-btn:hover {
-  background-color: green;
-}
-
-/* Estilo para el cuadro de diálogo */
-.dialog {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  max-width: 500px;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  z-index: 1000;
-}
 
 .dialog h2 {
   margin-top: 0;
@@ -494,6 +460,73 @@ button[type="submit"]:hover {
   cursor: pointer;
   text-align: center;
 }
+
+.cantidad-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;  /* Espacio entre los botones y el campo de entrada */
+}
+
+.cantidad {
+  width: 50px;  /* Ajusta el ancho según sea necesario */
+  text-align: center;  /* Asegura que el número esté centrado en el campo de entrada */
+  font-size: 1em;  /* Ajusta el tamaño de la fuente si es necesario */
+  border: 1px solid #ccc;  /* Borde fino */
+  border-radius: 5px;  /* Bordes redondeados */
+  padding: 5px;  /* Espaciado interno */
+}
+
+.cantidad-btn {
+  background-color: none; /* Color de fondo azul */
+  color: white;  /* Texto blanco */
+  border: none;  /* Sin borde */
+  padding: 5px 10px;  /* Ajuste de tamaño para que sea compacto */
+  font-size: 1em;  /* Tamaño de la fuente */
+  cursor: pointer;  /* Puntero de cursor */
+  border-radius: 5px;  /* Bordes redondeados */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cantidad-btn:hover {
+  background-color: none;  /* Color de fondo más oscuro al pasar el cursor */
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+  .cantidad-container {
+    flex-direction: column;  /* Cambia la dirección a columna en pantallas pequeñas */
+  }
+
+  .cantidad {
+    margin: 5px 0;  /* Añadir margen vertical en pantallas pequeñas */
+  }
+
+  .cantidad-btn {
+    width: 100%;  /* Asegurar que los botones ocupen todo el ancho del contenedor */
+    max-width: 50px;  /* Define un ancho máximo para los botones */
+  }
+}
+.add-to-cart{
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  background-color: darkblue;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+.add-to-cart:hover{
+  transform: scale(1.05);
+}
+
+
 
 .comprar-btn:hover {
   background-color: green;
@@ -560,14 +593,16 @@ button[type="submit"]:hover {
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;  /* Centrar elementos horizontalmente */
+  align-items: center;  
+  max-width: 600px; 
+  margin: 0 auto;
 }
 
 /* Estilos para los elementos del carrito */
 .cart-items {
   display: flex;
   flex-direction: column;
-  align-items: center;  /* Centrar los elementos horizontalmente */
+  align-items: flex-start;  
   gap: 20px;
   list-style: none;
   padding: 0;
@@ -577,7 +612,7 @@ button[type="submit"]:hover {
   color: black;
 }
 
-.cart-items {
+.cart-item {
   width: 100%;  /* Asegura que todos los elementos tengan el mismo ancho */
   max-width: 500px;  /* Define un ancho máximo para los elementos */
   padding: 10px;
@@ -586,7 +621,7 @@ button[type="submit"]:hover {
   background-color: #fff;
   display: flex;
   align-items: center;  /* Centrar elementos verticalmente dentro del cart-item */
-  justify-content: space-between;
+  
   min-height: 60px;  /* Establecer una altura mínima uniforme para todos los ítems */
 }
 
@@ -606,7 +641,7 @@ button[type="submit"]:hover {
   border: none;
   cursor: pointer;
   color: red;
-  font-size: 1.5em;
+  font-size: 1em;
   align-self: flex-end;
   margin-left: 10px;
   max-width: 100%; /* La imagen no será más ancha que su contenedor */ max-height: 500px; /* Altura máxima de la imagen */ width: auto; /* La imagen mantiene su proporción de ancho */ height: auto; /* La imagen mantiene su proporción de altura */ display: block; /* Asegura que la imagen se muestre como un bloque */ margin: 0 auto; /* Centra la imagen horizonta*/
@@ -620,7 +655,7 @@ button[type="submit"]:hover {
 
 /* Estilos para el botón de vaciar el carrito */
 .clear-cart {
-  background-color: #333;
+  background-color: red;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -634,4 +669,30 @@ button[type="submit"]:hover {
   background-color: #555;
 }
 
+/* Estilos para el botón de ver el carrito */
+.ver-carrito-btn {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 15px 50px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;  /* Añade espacio encima del botón */
+}
+
+.ver-carrito-btn:hover {
+  background-color: green;
+}
+.volver-a-productos{
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;  /* Añade espacio encima del botón */
+ 
+}
  

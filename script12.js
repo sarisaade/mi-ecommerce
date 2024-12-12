@@ -53,6 +53,13 @@ function generateProducts() {
     displayCart();
   }
   
+
+document.getElementById('cantidad-mas').addEventListener('click', function() {
+    var cantidad = document.getElementById('cantidad-1');
+    cantidad.value++;
+});
+
+  
   // Nueva función para eliminar una unidad del producto del carrito
   function removeFromCart(productId, productTalle) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -103,7 +110,7 @@ function generateProducts() {
     document.querySelector('.cart-total').textContent = cartTotal.toFixed(2);
   }
   // Nueva función para navegar a la página del carrito 
-  function goToCartPage() { window.location.href = 'carrito.html'; }
+  function goToCartPage() { window.location.href = 'carrito1.html'; }
   
   // Ejecutar la función cuando el DOM esté cargado
   document.addEventListener('DOMContentLoaded', () => {

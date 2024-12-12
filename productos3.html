@@ -26,7 +26,7 @@
                         <li><a href="index.html">Inicio</a></li> 
                         
                         <li><a href="contacto.html">Contacto</a></li> 
-                        <li><a href="carrito.html">Carrito</a></li>
+                        <li><a href="carrito1.html">Carrito</a></li>
                     </ul> 
                 </nav>    
         </div> 
@@ -48,8 +48,12 @@
             <option value="XL">XL</option>
           </select>
           <br><br>
-          <label for="cantidad-1">Cantidad:</label>
-          <input type="number" id="cantidad-1" class="cantidad" value="1" min="1">
+          <div class="cantidad-container">
+            
+            <input type="number" id="cantidad-1" class="cantidad" value="1" min="1">
+            <button class="cantidad-btn" id="cantidad-mas"></button>
+        </div>
+        
           <br><br>
           <button class="add-to-cart" data-id="1" data-name="Camisa Clásica" data-price="30.00">Agregar al carrito</button>
           <br><br>
@@ -76,11 +80,10 @@
           </select>
           <br><br>
           <label for="cantidad-2">Cantidad:</label>
-          <input type="number" id="cantidad-2" class="cantidad" value="1" min="1">
-          <br><br>
-          <button class="add-to-cart" data-id="2" data-name="Pantalón Moderno" data-price="45.00">Agregar al carrito</button>
-          <br><br>
-          
+            <input type="number" id="cantidad-2" class="cantidad" value="1" min="1">
+            <br><br>
+            <button class="add-to-cart" data-id="2" data-name="Panatalon de gabardina" data-price="45.00">Agregar al carrito</button>
+            <br><br> 
         </div>
         <div class="product-card" data-id="3">
           <h2>Pantalon Clasico</h2>
@@ -187,7 +190,7 @@
         <div class="cart-items"></div>
         <p>Total: $<span class="cart-total">0.00</span></p>
         <button class="clear-cart">Vaciar Carrito</button>
-        <button onclick="location.href='carrito.html'" class="ver-carrito-btn">Ver Carrito</button>
+        <button onclick="location.href='carrito1.html'" class="ver-carrito-btn">Ver Carrito</button>
       </div>
     </main>
     <footer>
