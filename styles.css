@@ -436,7 +436,7 @@ button[type="submit"]:hover {
 
 .dialog .form-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 50px;
 }
 
 .dialog .form-group input {
@@ -626,14 +626,28 @@ button[type="submit"]:hover {
 }
 
 .cart-items p {
-  margin: 0;
+  margin: 10;
   font-size: 1.2em;  /* Fuente más grande */
   font-weight: bold;  /* Texto más grueso */
   font-family: 'Arial', sans-serif;  /* Cambiar la fuente */
-  text-align: left;  /* Alinear el texto a la izquierda */
+  text-align: center;
+  padding: 20px;  /* Alinear el texto a la izquierda */
   flex: 1;  /* Permitir que el texto ocupe todo el espacio disponible */
 }
-
+.notification {
+  position: fixed;
+  top: 300px; /* Ajusta la distancia desde la parte superior */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Ajusta para centrar completamente */
+  background-color: #4CAF50; /* Verde para éxito */
+  color: white;
+  padding: 8px 16px; /* Haz el mensaje un poco más pequeño */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-size: 1em; /* Fuente más pequeña */
+  font-family: 'Arial', sans-serif;
+}
 
 /* Estilos para el botón de eliminar una unidad */
 .eliminar-unidad-btn {

@@ -28,87 +28,122 @@ function generateProducts() {
       });
     });
   }
-  
-  // Función para agregar producto al carrito
-  function addToCart(productId, productName, productPrice, productTalle, productQuantity) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    const product = {
+  // Función para mostrar notificación de producto agregado
+function showNotification(message) {
+  const notification = document.createElement('div');
+  notification.className = 'notification';
+  notification.textContent = message;
+
+  document.body.appendChild(notification);
+
+  setTimeout(() => {
+      document.body.removeChild(notification);
+  }, 2000);
+}
+
+// Función para agregar producto al carrito
+function addToCart(productId, productName, productPrice, productTalle, productQuantity) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  const product = {
       id: productId,
       name: productName,
       price: productPrice,
       talle: productTalle,
       quantity: productQuantity
-    };
-  
-    const existingProduct = cart.find(item => item.id === productId && item.talle === productTalle);
-  
-    if (existingProduct) {
+  };
+
+  const existingProduct = cart.find(item => item.id === productId && item.talle === productTalle);
+
+  if (existingProduct) {
       existingProduct.quantity += productQuantity;
-    } else {
+  } else {
       cart.push(product);
-    }
-  
-    localStorage.setItem('cart', JSON.stringify(cart));
-    displayCart();
   }
-  
 
-document.getElementById('cantidad-mas').addEventListener('click', function() {
-    var cantidad = document.getElementById('cantidad-1');
-    cantidad.value++;
-});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  displayCart();
+  
+  // Mostrar notificación
+  showNotification('Producto agregado al carrito');
+}
 
-  
-  // Nueva función para eliminar una unidad del producto del carrito
-  function removeFromCart(productId, productTalle) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  
-    const existingProduct = cart.find(item => item.id === productId && item.talle === productTalle);
-  
-    if (existingProduct) {
+// Función para eliminar una unidad del producto del carrito
+function removeFromCart(productId, productTalle) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  const existingProduct = cart.find(item => item.id === productId && item.talle === productTalle);
+
+  if (existingProduct) {
       existingProduct.quantity -= 1;
       if (existingProduct.quantity <= 0) {
-        cart = cart.filter(item => !(item.id === productId && item.talle === productTalle));
+          cart = cart.filter(item => !(item.id === productId && item.talle === productTalle));
       }
       localStorage.setItem('cart', JSON.stringify(cart));
       displayCart();
-    }
   }
-  
-  // Función para mostrar los productos en el carrito
-  function displayCart() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartContainer = document.querySelector('.cart-items');
-    cartContainer.innerHTML = '';
-  
-    cart.forEach(product => {
+}
+
+// Función para mostrar los productos en el carrito
+function displayCart() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartContainer = document.querySelector('.cart-items');
+  cartContainer.innerHTML = '';
+
+  cart.forEach(product => {
       const listItem = document.createElement('li');
       listItem.innerHTML = `
-        ${product.quantity}   ${product.name} (Talle: ${product.talle}) - Precio: $${(product.price * product.quantity).toFixed(2)}
-        <button class="remove-from-cart" data-id="${product.id}" data-talle="${product.talle}"><img src="./icono quitar carrito.png" alt=""></button>
+          ${product.quantity} ${product.name} (Talle: ${product.talle}) - Precio: $${(product.price * product.quantity).toFixed(2)}
+          <button class="remove-from-cart" data-id="${product.id}" data-talle="${product.talle}"><img src="./icono quitar carrito.png" alt=""></button>
       `;
       cartContainer.appendChild(listItem);
-    });
-  
-    updateCartTotal();
-  
-    // Añadir funcionalidad a los botones de eliminación
-    document.querySelectorAll('.remove-from-cart').forEach(button => {
+  });
+
+  updateCartTotal();
+
+  // Añadir funcionalidad a los botones de eliminación
+  document.querySelectorAll('.remove-from-cart').forEach(button => {
       button.addEventListener('click', () => {
-        const productId = parseInt(button.getAttribute('data-id'));
-        const productTalle = button.getAttribute('data-talle');
-        removeFromCart(productId, productTalle);
+          const productId = parseInt(button.getAttribute('data-id'));
+          const productTalle = button.getAttribute('data-talle');
+          removeFromCart(productId, productTalle);
       });
-    });
-  }
+  });
+}
+
+// Función para actualizar el total del carrito
+function updateCartTotal() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartTotal = cart.reduce((total, product) => total + (product.price * product.quantity), 0);
+  document.querySelector('.cart-total').textContent = cartTotal.toFixed(2);
+}
+
+// Inicializar la página del carrito
+document.addEventListener('DOMContentLoaded', () => {
+  displayCart();
+
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+          const productId = parseInt(button.getAttribute('data-id'));
+          const productName = button.getAttribute('data-name');
+          const productPrice = parseFloat(button.getAttribute('data-price'));
+          const productTalle = document.querySelector(`#talle-${productId}`).value;
+          const productQuantity = parseInt(document.querySelector(`#cantidad-${productId}`).value);
+          if (productTalle && productQuantity > 0) {
+              addToCart(productId, productName, productPrice, productTalle, productQuantity);
+          } else {
+              alert("Por favor, selecciona un talle y una cantidad válida.");
+          }
+      });
+  });
+
+  document.querySelector('.clear-cart').addEventListener('click', () => {
+      localStorage.removeItem('cart');
+      displayCart();
+  });
+});
+
   
-  // Función para actualizar el total del carrito
-  function updateCartTotal() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartTotal = cart.reduce((total, product) => total + (product.price * product.quantity), 0);
-    document.querySelector('.cart-total').textContent = cartTotal.toFixed(2);
-  }
   // Nueva función para navegar a la página del carrito 
   function goToCartPage() { window.location.href = 'carrito1.html'; }
   
