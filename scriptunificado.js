@@ -1,3 +1,58 @@
+// URL de la API (Fake Store API)
+const apiURL = 'https://fakestoreapi.com/products';
+
+// Función para obtener los datos de la API
+async function fetchData() {
+    try {
+        const response = await fetch(apiURL);
+        if (!response.ok) {
+            throw new Error('Error en la solicitud');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Función para generar el HTML de una card
+function createCard(product) {
+    return `
+    <div class="product-card">
+        <h2>${product.title}</h2>
+        <img src="${product.image}" alt="${product.title}">
+        <p>${product.description}</p>
+        <p>Precio: $${product.price}</p>
+        <button class="add-to-cart" data-id="${product.id}" data-name="${product.title}" data-price="${product.price}">Agregar al carrito</button>
+    </div>`;
+}
+
+// Función para mostrar los datos en el HTML y añadir eventos de clic
+async function displayData() {
+    const main = document.querySelector('.product-container');
+    const data = await fetchData();
+
+    if (data && Array.isArray(data)) {
+        main.innerHTML += data.map(createCard).join('');
+    }
+
+    // Añadir eventos de clic a los nuevos botones "Agregar al carrito"
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = parseInt(button.getAttribute('data-id'));
+            const productName = button.getAttribute('data-name');
+            const productPrice = parseFloat(button.getAttribute('data-price'));
+            const productTalle = ''; // o cualquier otro valor predeterminado
+            const productQuantity = 1; // o cualquier otro valor predeterminado
+            addToCart(productId, productName, productPrice, productTalle, productQuantity);
+        });
+    });
+}
+
+// Ejecutar la función al cargar la página
+document.addEventListener('DOMContentLoaded', displayData);
+
+// Aquí va el resto de tu scriptunificado.js
 // Función para mostrar notificación de producto agregado
 function showNotification(message) {
     const notification = document.createElement('div');
@@ -161,6 +216,7 @@ function initPage() {
             return;
         }
 
+        
         // Mostrar mensaje de confirmación estilizado
         const confirmationMessage = document.getElementById('confirmation-message');
         confirmationMessage.innerHTML = `

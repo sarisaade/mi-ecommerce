@@ -1,5 +1,3 @@
-// script.js
-
 // Función para generar los productos en formato JSON
 function generateProducts() {
     return [
@@ -11,7 +9,6 @@ function generateProducts() {
       { id: 6, name: "Chombas", description: "Descripción de la chomba.", price: 45 }
     ];
   }
-  
   // Función para mostrar las imágenes adicionales al hacer clic en "Ver más"
   function addViewMoreButton() {
     document.querySelectorAll('.ver-mas').forEach(button => {
@@ -33,29 +30,23 @@ function showNotification(message) {
   const notification = document.createElement('div');
   notification.className = 'notification';
   notification.textContent = message;
-
-  document.body.appendChild(notification);
-
-  setTimeout(() => {
+ document.body.appendChild(notification);
+ setTimeout(() => {
       document.body.removeChild(notification);
   }, 2000);
 }
-
 // Función para agregar producto al carrito
 function addToCart(productId, productName, productPrice, productTalle, productQuantity) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  const product = {
+ const product = {
       id: productId,
       name: productName,
       price: productPrice,
       talle: productTalle,
       quantity: productQuantity
   };
-
-  const existingProduct = cart.find(item => item.id === productId && item.talle === productTalle);
-
-  if (existingProduct) {
+const existingProduct = cart.find(item => item.id === productId && item.talle === productTalle);
+ if (existingProduct) {
       existingProduct.quantity += productQuantity;
   } else {
       cart.push(product);
@@ -63,11 +54,9 @@ function addToCart(productId, productName, productPrice, productTalle, productQu
 
   localStorage.setItem('cart', JSON.stringify(cart));
   displayCart();
-  
   // Mostrar notificación
   showNotification('Producto agregado al carrito');
 }
-
 // Función para eliminar una unidad del producto del carrito
 function removeFromCart(productId, productTalle) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -82,15 +71,12 @@ function removeFromCart(productId, productTalle) {
       localStorage.setItem('cart', JSON.stringify(cart));
       displayCart();
   }
-}
-
-// Función para mostrar los productos en el carrito
+}// Función para mostrar los productos en el carrito
 function displayCart() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const cartContainer = document.querySelector('.cart-items');
   cartContainer.innerHTML = '';
-
-  cart.forEach(product => {
+cart.forEach(product => {
       const listItem = document.createElement('li');
       listItem.innerHTML = `
           ${product.quantity} ${product.name} (Talle: ${product.talle}) - Precio: $${(product.price * product.quantity).toFixed(2)}
@@ -98,10 +84,8 @@ function displayCart() {
       `;
       cartContainer.appendChild(listItem);
   });
-
-  updateCartTotal();
-
-  // Añadir funcionalidad a los botones de eliminación
+updateCartTotal();
+// Añadir funcionalidad a los botones de eliminación
   document.querySelectorAll('.remove-from-cart').forEach(button => {
       button.addEventListener('click', () => {
           const productId = parseInt(button.getAttribute('data-id'));
@@ -109,20 +93,16 @@ function displayCart() {
           removeFromCart(productId, productTalle);
       });
   });
-}
-
-// Función para actualizar el total del carrito
+}// Función para actualizar el total del carrito
 function updateCartTotal() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const cartTotal = cart.reduce((total, product) => total + (product.price * product.quantity), 0);
   document.querySelector('.cart-total').textContent = cartTotal.toFixed(2);
 }
-
 // Inicializar la página del carrito
 document.addEventListener('DOMContentLoaded', () => {
   displayCart();
-
-  document.querySelectorAll('.add-to-cart').forEach(button => {
+document.querySelectorAll('.add-to-cart').forEach(button => {
       button.addEventListener('click', () => {
           const productId = parseInt(button.getAttribute('data-id'));
           const productName = button.getAttribute('data-name');
@@ -136,23 +116,18 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       });
   });
-
-  document.querySelector('.clear-cart').addEventListener('click', () => {
+document.querySelector('.clear-cart').addEventListener('click', () => {
       localStorage.removeItem('cart');
       displayCart();
   });
 });
-
-  
-  // Nueva función para navegar a la página del carrito 
+// Nueva función para navegar a la página del carrito 
   function goToCartPage() { window.location.href = 'carrito1.html'; }
-  
-  // Ejecutar la función cuando el DOM esté cargado
+   // Ejecutar la función cuando el DOM esté cargado
   document.addEventListener('DOMContentLoaded', () => {
     addViewMoreButton();
     displayCart();
-  
-    document.querySelectorAll('.add-to-cart').forEach(button => {
+  document.querySelectorAll('.add-to-cart').forEach(button => {
       button.addEventListener('click', () => {
         const productId = parseInt(button.getAttribute('data-id'));
         const productName = button.getAttribute('data-name');
@@ -167,40 +142,34 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   
-    document.querySelector('.clear-cart').addEventListener('click', () => {
+document.querySelector('.clear-cart').addEventListener('click', () => {
       localStorage.removeItem('cart');
       displayCart();
     });
   });
   // validateForm.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contact-form');
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const messageInput = document.getElementById('message');
     const formErrors = document.getElementById('form-errors');
-  
-    form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', (event) => {
       let errors = [];
-  
-      // Validación de nombre
+  // Validación de nombre
       if (nameInput.value.trim() === '') {
         errors.push('El nombre es obligatorio.');
       }
-  
-      // Validación de correo electrónico
+  // Validación de correo electrónico
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailPattern.test(emailInput.value)) {
         errors.push('El correo electrónico no es válido.');
       }
-  
-      // Validación de mensaje
+// Validación de mensaje
       if (messageInput.value.trim() === '') {
         errors.push('Debe escribir un mensaje.');
       }
-  
-      // Mostrar errores si hay
+  // Mostrar errores si hay
       if (errors.length > 0) {
         event.preventDefault();
         formErrors.classList.add('error-message');
@@ -211,16 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-  
-// scripts.js
-
 document.addEventListener('DOMContentLoaded', () => {
   const confirmarCarritoBtn = document.getElementById('confirmar-carrito-btn');
   const dialog = document.getElementById('dialog');
   const confirmationForm = document.getElementById('confirmation-form');
   const confirmationMessage = document.createElement('div');
-
-  // Crear mensaje de confirmación estilizado
+// Crear mensaje de confirmación estilizado
   confirmationMessage.id = 'confirmation-message';
   confirmationMessage.style.display = 'none';
   confirmationMessage.style.position = 'fixed';
@@ -240,24 +205,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   confirmationForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    
-    // Validar número de teléfono
+     // Validar número de teléfono
     const phoneInput = document.getElementById('buyer-phone');
     const phonePattern = /^[0-9]{10,15}$/; // Permitir solo números de 10 a 15 dígitos
     if (!phonePattern.test(phoneInput.value)) {
       alert('Por favor, ingrese un número de teléfono válido.');
       return;
     }
-
-    // Validar correo electrónico
+ // Validar correo electrónico
     const emailInput = document.getElementById('buyer-email');
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(emailInput.value)) {
       alert('Por favor, ingrese un correo electrónico válido.');
       return;
-    }
-
-    // Mostrar mensaje de confirmación estilizado
+    }// Mostrar mensaje de confirmación estilizado
     confirmationMessage.innerHTML = `
       <h2>Compra Confirmada</h2>
       <p>¡Gracias por su compra, ${document.getElementById('buyer-name').value}!
